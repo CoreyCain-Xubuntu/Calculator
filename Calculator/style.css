@@ -1,0 +1,119 @@
+/* Base styling for the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #b9b9b9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Calculator styling */
+.calculator {
+    background-color: black;
+    padding: 1em;
+    border-radius: 1em;
+    width: 250px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Display area styling */
+.calculator-display {
+    background-color: rgb(253, 253, 234);
+    font-size: medium;
+    text-align: right;
+    padding: 1em;
+    border-radius: 0.25em;
+    color: black;
+    margin-bottom: 1em;
+    min-height: 62px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 1);
+    transform: rotateX(-10deg);
+}
+
+/* Grid layout for calculator keys */
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5em;
+}
+
+/* Common button styling */
+.calculator-keys button {
+    padding: 1em;
+    font-size: large;
+    background-color: #b6b2b2;
+    border: ridge;
+    border-radius: 0.5em;
+    cursor: pointer;
+    box-shadow: 0 2px 2px rgb(255, 255, 255);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Button states and types */
+.calculator-keys button.pressed {
+    box-shadow: 0 1px 1px rgb(0, 0, 0);
+    transform: translateY(2px);
+    transition: none;
+}
+
+.calculator-keys button.digit:hover,
+.calculator-keys button.equals:hover,
+.calculator-keys button.clear:hover,
+.calculator-keys button.operator:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 1);
+}
+
+.calculator-keys button.operator {
+    background-color: #ff9500;
+    color: rgb(0, 0, 0);
+}
+
+.calculator-keys button.equals {
+    background-color: #4caf50;
+    color: rgb(0, 0, 0);
+}
+
+.calculator-keys button.clear {
+    background-color: #ff3b30;
+    color: rgb(0, 0, 0);
+}
+
+/* Grid layout for specific buttons */
+.calculator-keys .clear { grid-area: 1 / 1; }
+.calculator-keys .operator:nth-of-type(1) { grid-area: 1 / 2; }
+.calculator-keys .operator:nth-of-type(2) { grid-area: 1 / 3; }
+.calculator-keys .operator:nth-of-type(3) { grid-area: 1 / 4; }
+.calculator-keys .digit:nth-of-type(1) { grid-area: 2 / 1; }
+.calculator-keys .digit:nth-of-type(2) { grid-area: 2 / 2; }
+.calculator-keys .digit:nth-of-type(3) { grid-area: 2 / 3; }
+.calculator-keys .operator:nth-of-type(4) { grid-area: 2 / 4 / span 2; }
+.calculator-keys .digit:nth-of-type(4) { grid-area: 3 / 1; }
+.calculator-keys .digit:nth-of-type(5) { grid-area: 3 / 2; }
+.calculator-keys .digit:nth-of-type(6) { grid-area: 3 / 3; }
+.calculator-keys .digit:nth-of-type(7) { grid-area: 4 / 1; }
+.calculator-keys .digit:nth-of-type(8) { grid-area: 4 / 2; }
+.calculator-keys .digit:nth-of-type(9) { grid-area: 4 / 3; }
+.calculator-keys .equals { grid-area: 4 / 4 / span 2; }
+.calculator-keys .digit:nth-of-type(10) { grid-area: 5 / 1 / span 1 / span 2; }
+.calculator-keys .digit:nth-of-type(11) { grid-area: 5 / 3; }
+
+/* Animation for scaling effect */
+@keyframes scaleUp {
+    from {
+      transform: scale(0.001);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+}
+
+.scale-up {
+    animation: scaleUp 2s ease-in-out;
+    transform-origin: center;
+}
